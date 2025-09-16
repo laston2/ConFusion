@@ -1,0 +1,7 @@
+{
+	"name": "CUDA_Conda",
+	"build": { 
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	}
+}
