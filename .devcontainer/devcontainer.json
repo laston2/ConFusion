@@ -1,7 +1,20 @@
 {
-	"name": "CUDA_Conda",
-	"build": { 
-		"context": "..",
-		"dockerfile": "Dockerfile"
-	}
+    "name": "CUDA_Conda",
+    "build": { 
+        "context": "..",
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "dev",
+    "containerEnv": {
+        "PIP_USER": "false",
+        "CONDA_DEFAULT_ENV": "confusion"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.terminal.activateEnvironment": true,
+                "python.pythonPath": "/opt/conda/envs/confusion/bin/python"
+            }
+        }
+    }
 }

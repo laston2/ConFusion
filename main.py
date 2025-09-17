@@ -1,6 +1,7 @@
+import test_cases.manufactured.manifolds as manifolds
 
 def main():
-    print("Hello, World!")
+    manifolds.swiss_roll()
 
 if __name__ == '__main__':
     main()

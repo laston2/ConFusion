@@ -17,7 +17,6 @@ RUN apt-get update && \
 
 # Install Miniconda (as root)
 ARG CONDA_DIR=/opt/conda
-ARG PATH=$CONDA_DIR/bin:$PATH
 
 RUN apt-get update && apt-get install -y wget bzip2 && \
     wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -26,6 +25,8 @@ RUN apt-get update && apt-get install -y wget bzip2 && \
     $CONDA_DIR/bin/conda clean -afy && \
     find $CONDA_DIR/ -follow -type f -name '*.a' -delete && \
     find $CONDA_DIR/ -follow -type f -name '*.js.map' -delete
+
+RUN /opt/conda/bin/conda init bash
 
 # Fix update permissions for conda
 RUN chown -R $USERNAME:$USERNAME /opt/conda
@@ -51,4 +52,4 @@ RUN groupadd -f input && \
 # Switch back to non-root user
 USER $USERNAME
 
-ENTRYPOINT ["$SHELL"]
+ENTRYPOINT ["$SHELL", "--login"]
