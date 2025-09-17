@@ -16,5 +16,8 @@
                 "python.pythonPath": "/opt/conda/envs/confusion/bin/python"
             }
         }
-    }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/dev/.ssh,type=bind,consistency=cached"
+    ]
 }
