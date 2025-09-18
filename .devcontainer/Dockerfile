@@ -10,6 +10,7 @@ RUN useradd -m $USERNAME
 # Install required packages
 RUN apt-get update && \
     apt-get install -y \
+    vim \
     cmake \
     git \
     build-essential \
