@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 
 import test_cases.manufactured.manifolds as manifolds
 
+def close_figure_on_escape(event):
+    if event.key == 'escape':
+        plt.close(event.canvas.figure)
+
 def generate_manifolds(n_samples, noise, plot_data=False):
     data, colour = manifolds.swiss_roll(n_samples, noise)
 
@@ -18,4 +22,6 @@ def generate_manifolds(n_samples, noise, plot_data=False):
     ax.set_title("Swiss Roll in Ambient Space")
     ax.view_init(azim=-66, elev=12)
     _ = ax.text2D(0.8, 0.05, s="n_samples=1500", transform=ax.transAxes)
+
+    fig.canvas.mpl_connect('key_press_event', close_figure_on_escape)
     plt.show()
