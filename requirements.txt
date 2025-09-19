@@ -1,4 +1,8 @@
+# Standard Libraries
 matplotlib
 numpy
 scikit-learn
 scipy
+
+# Specialised Libraries
+gudhi
